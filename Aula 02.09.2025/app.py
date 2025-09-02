@@ -1,18 +1,18 @@
-from tkinter import *
-from tkinter import ttk
-root = Tk() #aqui cria um objeto através da classe Tk
-frm = ttk.Frame(root, padding=10) #criou um objeto do tipo frame, e estou falando qu quero configurar ele dentro do root
+import customtkinter
 
+def button_callback():
+    print("button pressed")
 
+app = customtkinter.CTk()
+app.title("my app")
+app.geometry("400x150")
 
+button = customtkinter.CTkButton(app, text="my button", command=button_callback)
+button.grid(row=0, column=1, padx=20, pady=20)
+label1 = customtkinter.CTkLabel(app, text="Hello Word")
+label1.grid(row=0, column=0, padx=20, pady=20)
 
-frm.grid()
-ttk.Label(frm, text="Hello World!").grid(column=0, row=0)
-ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=0)
-ttk.Label(frm, text="Hello World!").grid(column=0, row=1)
-ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=1)
-ttk.Label(frm, text="Hello World!").grid(column=0, row=2)
-ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=2)
+entry = customtkinter.CTkEntry(app, placeholder_text="CTkEntry")
+entry.grid(row=1, column=0, columnspan=2, padx=20, pady=20, stick="ew")
 
-
-root.mainloop()
+app.mainloop()
