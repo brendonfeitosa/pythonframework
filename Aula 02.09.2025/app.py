@@ -3,6 +3,13 @@ import customtkinter
 def button_callback():
     print("button pressed")
 
+customtkinter.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
+
+
+#customtkinter.set_appearance_mode("system")  # default
+customtkinter.set_appearance_mode("dark")
+#customtkinter.set_appearance_mode("light")
+
 app = customtkinter.CTk()
 app.title("my app")
 app.geometry("400x150")
