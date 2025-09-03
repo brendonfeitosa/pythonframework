@@ -1,11 +1,12 @@
 import customtkinter as ctk
+from tkinter import messagebox as msb
 
 app = ctk.CTk()
 app.title("my app")
 
 # Definir tamanho da janela
 largura = 400
-altura = 150
+altura = 350
 
 # Pegar tamanho da tela
 largura_tela = app.winfo_screenwidth()
@@ -37,6 +38,8 @@ ctk.set_appearance_mode("light")
 #customtkinter.set_appearance_mode("light")
 
 
+
+
 switch_var = ctk.StringVar(value="on")
 switch = ctk.CTkSwitch(app, text="", command=switch_event, variable=switch_var, onvalue="on", offvalue="off")
 switch.grid(row=0, column=0, padx=0, pady=0)
@@ -49,5 +52,26 @@ button_1.grid(row=1, column=1, padx=20, pady=20)
 
 entry = ctk.CTkEntry(app, placeholder_text="CTkEntry")
 entry.grid(row=2, column=0, columnspan=2, padx=20, pady=20, stick="ew")
+
+def combobox_callback(choice):
+    print("combobox dropdown clicked:", choice)
+
+combobox = ctk.CTkComboBox(app, values=["option 1", "option 2"],
+                                     command=combobox_callback)
+combobox.set("option 2")
+combobox.grid(row=3, column=0, columnspan=2, padx=20, pady=20)
+
+
+def checkbox_event():
+    #label = ctk.CTkLabel(app, text="Termos aceitos", fg_color="transparent")
+    status = check_var.get()
+    if status == "on":
+        msb.showinfo("Informação","Termos aceitos")
+        
+
+check_var = ctk.StringVar(value="off")
+checkbox = ctk.CTkCheckBox(app, text="Aceite os termos", command=checkbox_event,
+                                     variable=check_var, onvalue="on", offvalue="off")
+checkbox.grid(row=4, column=0, columnspan=2, padx=20, pady=20)
 
 app.mainloop()
