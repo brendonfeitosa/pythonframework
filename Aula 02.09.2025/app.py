@@ -6,7 +6,7 @@ app.title("my app")
 
 # Definir tamanho da janela
 largura = 400
-altura = 350
+altura = 450
 
 # Pegar tamanho da tela
 largura_tela = app.winfo_screenwidth()
@@ -37,9 +37,6 @@ ctk.set_default_color_theme("dark-blue")  # Themes: "blue" (standard), "green", 
 ctk.set_appearance_mode("light")
 #customtkinter.set_appearance_mode("light")
 
-
-
-
 switch_var = ctk.StringVar(value="on")
 switch = ctk.CTkSwitch(app, text="", command=switch_event, variable=switch_var, onvalue="on", offvalue="off")
 switch.grid(row=0, column=0, padx=0, pady=0)
@@ -68,10 +65,38 @@ def checkbox_event():
     if status == "on":
         msb.showinfo("Informação","Termos aceitos")
         
-
 check_var = ctk.StringVar(value="off")
 checkbox = ctk.CTkCheckBox(app, text="Aceite os termos", command=checkbox_event,
                                      variable=check_var, onvalue="on", offvalue="off")
 checkbox.grid(row=4, column=0, columnspan=2, padx=20, pady=20)
+
+def button_click_event():
+    dialog = ctk.CTkInputDialog(text="Digite seu nome:", title="Entre com seu nome")
+
+    # Definir tamanho da janela
+    largura = 300
+    altura = 150
+
+    # Pegar tamanho da tela
+    largura_tela = dialog.winfo_screenwidth()
+    altura_tela = dialog.winfo_screenheight()
+
+    # Calcular posição x e y
+    pos_x = (largura_tela - largura) // 2
+    pos_y = (altura_tela - altura) // 2
+
+    # Aplicar geometria (tamanho + posição centralizada)
+    dialog.geometry(f"{largura}x{altura}+{pos_x}+{pos_y}")
+
+    nome_digitado = dialog.get_input()
+    label.configure(text=nome_digitado)
+
+
+
+button_input = ctk.CTkButton(app, text="Open Dialog", command=button_click_event, hover_color="green")
+button_input.grid(row=5, column=0, columnspan=2, stick="ew", padx=20, pady=20)
+
+label = ctk.CTkLabel(app, text="...", fg_color="transparent")
+label.grid(row=6, column=0, columnspan=2, stick="ew", padx=10, pady=10)
 
 app.mainloop()
