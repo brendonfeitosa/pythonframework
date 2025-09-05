@@ -1,6 +1,9 @@
 import customtkinter as ctk
 from tkinter import messagebox as msb
 
+from core.acoes.optionmenu_callback import *
+from core.busca_cep.busca_cep import *
+
 app = ctk.CTk()
 app.title("Currículo")
 
@@ -39,7 +42,9 @@ entry_cep.grid(row=3, column=3, padx=0, pady=0, stick="ew")
 
 #Botão cep
 def button_cep_event():
-    print("button pressed")
+    cep = entry_cep.get()
+    dados = busca_cep(cep[0])
+    print(dados)
 
 button_cep = ctk.CTkButton(app, text="Buscar CEP", command=button_cep_event)
 button_cep.grid(row=3, column=4, padx=10, pady=0, stick="w")
@@ -54,8 +59,8 @@ entry_cidade.grid(row=5, column=0, columnspan=5, padx=0, pady=0, stick="ew")
 label_genero = ctk.CTkLabel(app, text="Genero", fg_color="transparent")
 label_genero.grid(row=6, column=0, padx=10, pady=(10, 0), stick="w")
 
-def optionmenu_callback(choice):
-    print("optionmenu dropdown clicked:", choice)
+# def optionmenu_callback(choice):
+#     print("optionmenu dropdown clicked:", choice)
 
 genero = ctk.CTkOptionMenu(app, button_color="white",fg_color="white", values=["--------", "Masculino", "Feminino"], command=optionmenu_callback)
 genero.set("--------")
