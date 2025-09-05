@@ -1,4 +1,4 @@
-from core.calculo.media import calc_media, calc_media_pond #estou importando a função calc_media da pasta core/calculo/media.py
+from core.calculo.media import * #estou importando as funções do arquivo media.py
 
 tupla_val = (10,5,7,6,3,4)
 tupla_pesos = (1,1,3,1,3,1)
