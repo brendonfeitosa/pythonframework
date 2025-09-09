@@ -110,6 +110,7 @@ check_var = ctk.StringVar(value="off")
 checkbox = ctk.CTkCheckBox(app, text="Disponibilizar meus dados para a candidatura", command=checkbox_event, variable=check_var, onvalue="on", offvalue="off")
 checkbox.grid(row=10, column=0, columnspan=4, padx=10, pady=(10, 0), stick="w")
 
+
 #Botão cancelar
 def button_cancelar_event():
     entry_nome.delete(0, "end")
@@ -124,9 +125,18 @@ def button_cancelar_event():
 button_cancelar = ctk.CTkButton(app, text="Cancelar", command=button_cancelar_event)
 button_cancelar.grid(row=11, column=0, padx=10, pady=(10, 0), stick="w")
 
-#Botão gravar
 def button_gravar_event():
-    print("button pressed")
+    if check_var == "on":
+#Botão gravar
+        nome = entry_nome.get()
+        rua = entry_endereco.get()
+        cep = entry_cep.get()
+        cidade = entry_cidade.get()
+        sexo = genero.get()
+        idade = entry_idade.get()
+        habilidades = textbox.get()
+    else:
+        print("Marque a caixa de seleção para seguir com o cadastro!")
 
 button_gravar = ctk.CTkButton(app, text="Gravar", command=button_gravar_event)
 button_gravar.grid(row=11, column=3, padx=10, pady=(10, 0), stick="w")
