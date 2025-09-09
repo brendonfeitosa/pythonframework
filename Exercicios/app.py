@@ -99,7 +99,7 @@ textbox = ctk.CTkTextbox(app)
 textbox.insert("0.0", "digite...")  # insert at line 0 character 0
 text = textbox.get("0.0", "end")  # get text from line 0 character 0 till the end
 #textbox.delete("0.0", "end")  # delete all text
-textbox.configure(state="disabled")  # configure textbox to be read-only
+textbox.configure(state="normal")  # configure textbox to be read-only
 textbox.grid(row=9, column=0, columnspan=5, padx=0, pady=0, stick="ew")
 
 #Autorização
@@ -119,14 +119,14 @@ def button_cancelar_event():
     entry_cidade.delete(0, "end")
     entry_idade.delete(0, "end")
     genero.set("--------")
-    textbox.delete(0, "end")
+    textbox.delete("0.0", "end")
     
 
 button_cancelar = ctk.CTkButton(app, text="Cancelar", command=button_cancelar_event)
 button_cancelar.grid(row=11, column=0, padx=10, pady=(10, 0), stick="w")
 
 def button_gravar_event():
-    if check_var == "on":
+    if check_var.get() == "on":
 #Botão gravar
         nome = entry_nome.get()
         rua = entry_endereco.get()
@@ -134,11 +134,34 @@ def button_gravar_event():
         cidade = entry_cidade.get()
         sexo = genero.get()
         idade = entry_idade.get()
-        habilidades = textbox.get()
+        habilidades = textbox.get("0.0", "end").strip()
+        checagem = check_var.get()
+
+        conteudo = f""" 
+        -------------------INFORMAÇÕES-------------------
+        Nome: {nome}
+        Endereço: {rua}
+        CEP: {cep}
+        Cidade: {cidade}
+        Gênero: {sexo}
+        Idade: {idade}
+        Habilidades: {habilidades}
+        Disponível para candidatura: {checagem}
+        """
+        arquivo = open("Curriculo.txt" , "w", encoding="utf-8")
+        arquivo.write(conteudo)
+        arquivo.close()
+
+        msb.showinfo("Sucesso", "Dados gravados com sucesso no arquivo 'curriculo.txt'.")
+
+        limpar_form = button_cancelar_event()
+
     else:
         print("Marque a caixa de seleção para seguir com o cadastro!")
 
 button_gravar = ctk.CTkButton(app, text="Gravar", command=button_gravar_event)
 button_gravar.grid(row=11, column=3, padx=10, pady=(10, 0), stick="w")
+button_gravar = ctk.CTkButton(app, text="Gravar", command=button_gravar_event)
+
 
 app.mainloop()

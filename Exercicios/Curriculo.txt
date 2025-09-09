@@ -1,0 +1,11 @@
+ 
+        -------------------INFORMAÇÕES-------------------
+        Nome: Brendon Feitosa
+        Endereço: Rua Quinze de Novembro
+        CEP: 19015060
+        Cidade: Presidente Prudente
+        Gênero: Masculino
+        Idade: 29
+        Habilidades: Testando
+        Disponível para candidatura: on
+        
