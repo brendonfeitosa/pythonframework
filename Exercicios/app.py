@@ -8,7 +8,7 @@ app = ctk.CTk()
 app.title("Currículo")
 
 # Definir tamanho da janela
-largura = 600
+largura = 490
 altura = 600
 
 # Pegar tamanho da tela
@@ -120,6 +120,8 @@ def button_cancelar_event():
     entry_idade.delete(0, "end")
     genero.set("--------")
     textbox.delete("0.0", "end")
+    checkbox.deselect()
+
     
 
 button_cancelar = ctk.CTkButton(app, text="Cancelar", command=button_cancelar_event)
@@ -157,7 +159,7 @@ def button_gravar_event():
         limpar_form = button_cancelar_event()
 
     else:
-        print("Marque a caixa de seleção para seguir com o cadastro!")
+        msb.showinfo("Erro", "Marque a caixa de seleção para seguir com o cadastro!")
 
 button_gravar = ctk.CTkButton(app, text="Gravar", command=button_gravar_event)
 button_gravar.grid(row=11, column=3, padx=10, pady=(10, 0), stick="w")
