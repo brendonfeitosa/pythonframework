@@ -1,0 +1,23 @@
+ 
+        -------------------INFORMAÇÕES-------------------
+        Nome: Brendon
+        Endereço: Rua Quinze de Novembro
+        CEP: 19015060
+        Cidade: Presidente Prudente
+        Gênero: Masculino
+        Idade: 29
+        Habilidades: Aprendendo python
+        Disponível para candidatura: on 
+
+         
+        -------------------INFORMAÇÕES-------------------
+        Nome: Debora
+        Endereço: Rua Quinze de Novembro
+        CEP: 19015060
+        Cidade: Presidente Prudente
+        Gênero: Feminino
+        Idade: 41
+        Habilidades: Teste
+        Disponível para candidatura: on 
+
+        

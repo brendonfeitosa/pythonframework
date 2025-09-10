@@ -120,7 +120,9 @@ def button_cancelar_event():
     entry_idade.delete(0, "end")
     genero.set("--------")
     textbox.delete("0.0", "end")
+    textbox.insert("0.0", "digite...")
     checkbox.deselect()
+    entry_nome.focus_set()
 
     
 
@@ -140,21 +142,23 @@ def button_gravar_event():
         checagem = check_var.get()
 
         conteudo = f""" 
-        -------------------INFORMAÇÕES-------------------
-        Nome: {nome}
-        Endereço: {rua}
-        CEP: {cep}
-        Cidade: {cidade}
-        Gênero: {sexo}
-        Idade: {idade}
-        Habilidades: {habilidades}
-        Disponível para candidatura: {checagem}
+-------------------INFORMAÇÕES-------------------
+Nome: {nome}
+Endereço: {rua}
+CEP: {cep}
+Cidade: {cidade}
+Gênero: {sexo}
+Idade: {idade}
+Habilidades: {habilidades}
+Disponível para candidatura: {checagem} 
+
         """
-        arquivo = open("Curriculo.txt" , "w", encoding="utf-8")
+        arquivo = open("Curriculo.txt" , "a", encoding="utf-8")
         arquivo.write(conteudo)
         arquivo.close()
 
         msb.showinfo("Sucesso", "Dados gravados com sucesso no arquivo 'curriculo.txt'.")
+        
 
         limpar_form = button_cancelar_event()
 
