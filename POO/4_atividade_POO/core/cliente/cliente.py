@@ -1,31 +1,19 @@
-from core.contacorrente.contacorrente import ContaCorrente
-from core.contapoupanca.contapoupanca import ContaPoupanca
+class Cliente:
+    def __init__(self, nome: str, data_nasc: str, cpf: str, endereco: str):
+        # inicializa os atributos da instância
+        self.nome = nome
+        self.data_nasc = data_nasc
+        self.cpf = cpf
+        self.endereco = endereco
 
-class Cliente(ContaCorrente, ContaPoupanca):
-    def __init__(self, nome, data_nasc, cpf, endereco):
-        ContaCorrente.__init__(self, )
-        self.__nome = nome
-        self.__data_nasc = data_nasc
-        self.__cpf = cpf
-        self.__endereco = endereco
+    def dados_cliente(self) -> str:
+        """Retorna uma string com os dados do cliente."""
+        return (f"Cliente: {self.nome}\n"
+                f"Nascimento: {self.data_nasc}\n"
+                f"CPF: {self.cpf}\n"
+                f"Endereço: {self.endereco}")
 
-    
-    @property
-    def dados_cliente(self):
-        return {
-            "nome": self.__nome,
-            "data_nasc": self.__data_nasc,
-            "cpf": self.__cpf,
-            "endereco": self.__endereco
-        }
-    
-    @dados_cliente.setter
-    def dados_cliente(self, nome, data_nasc, cpf, endereco):
-        self.__nome = nome
-        self.__data_nasc = data_nasc
-        self.__cpf = cpf
-        self.__endereco = endereco
-    
+    def __str__(self) -> str:
+        # define como o objeto será mostrado ao usar print(obj)
+        return self.dados_cliente()
 
-
-    
