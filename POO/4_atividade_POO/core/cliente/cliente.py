@@ -7,7 +7,7 @@ class Cliente:
         self.endereco = endereco
 
     def dados_cliente(self) -> str:
-        """Retorna uma string com os dados do cliente."""
+        #Retorna uma string com os dados do cliente.
         return (f"Cliente: {self.nome}\n"
                 f"Nascimento: {self.data_nasc}\n"
                 f"CPF: {self.cpf}\n"

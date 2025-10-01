@@ -58,4 +58,4 @@ class ContaCorrente:
         return self.__saldo
 
     def __repr__(self) -> str:
-        return f"ContaCorrente(banco='{self.__banco}', agencia='{self.__num_agencia}', conta='{self.__num_conta}', saldo={self.__saldo:.2f}, limite={self.__limite:.2f})"
+        return f"ContaCorrente (banco='{self.__banco}', agencia='{self.__num_agencia}', conta='{self.__num_conta}', saldo={self.__saldo:.2f}, limite={self.__limite:.2f})"

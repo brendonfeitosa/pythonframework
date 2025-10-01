@@ -1,7 +1,6 @@
 from core.cliente.cliente import Cliente
 from core.contacorrente.contacorrente import ContaCorrente
 from core.contapoupanca.contapoupanca import ContaPoupanca
-from core.saque.saque import Saque
 import locale
 
 # Define o locale para Brasil
